@@ -1,4 +1,5 @@
 import socket
+from FTPlib import *
 
 def getIPLAN():
     address = socket.getfqdn()
@@ -6,7 +7,10 @@ def getIPLAN():
     return l[3]+"."+l[2]+"."+l[1]+"."+l[0]
 
 def serve_client(connection, address):
-    msg = "Welcome to "+HOST+" FTPServer"
+    msg = "\
+           +-----------------------------------------------+ \n\
+           |  Welcome to "+HOST+" FTPServer\t   | \n\
+           +-----------------------------------------------+ "
     connection.sendall(msg.encode())
     while (True):
         msg = connection.recv(1024).decode()

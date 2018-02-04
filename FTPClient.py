@@ -7,7 +7,7 @@ PORT = (int)(sys.argv[2])
 def go():
     while (True):
         response = sock.recv(1024).decode()
-        print("Received: " + response)
+        print(response)
         try:
             request = input("Request: ")
             sock.sendall(request.encode())
